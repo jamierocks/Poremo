@@ -21,6 +21,14 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven {
+            name 'spacehq-releases'
+            url 'https://repo.spacehq.org/content/repositories/releases'
+        }
+        maven {
+            name 'spacehq-snapshots'
+            url 'https://repo.spacehq.org/content/repositories/snapshots'
+        }
     }
 
     license {
