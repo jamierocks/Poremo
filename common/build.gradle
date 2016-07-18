@@ -1,4 +1,5 @@
 dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'org.spacehq:packetlib:1.0'
+    compile 'com.flowpowered:flow-nbt:1.0.0'
 }

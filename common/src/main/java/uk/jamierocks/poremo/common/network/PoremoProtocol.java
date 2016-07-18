@@ -37,6 +37,9 @@ import uk.jamierocks.poremo.common.network.login.client.CPacketLoginRequest;
 import uk.jamierocks.poremo.common.network.login.server.SPacketHandshake;
 import uk.jamierocks.poremo.common.network.login.server.SPacketKeepAlive;
 import uk.jamierocks.poremo.common.network.login.server.SPacketLoginRequest;
+import uk.jamierocks.poremo.common.network.play.client.CPacketChatMessage;
+import uk.jamierocks.poremo.common.network.play.server.SPacketChatMessage;
+import uk.jamierocks.poremo.common.network.play.server.SPacketTimeUpdate;
 
 /**
  * The Poremo Protocol.
@@ -67,10 +70,12 @@ public class PoremoProtocol extends PacketProtocol {
         this.registerIncoming(0x00, SPacketKeepAlive.class);
         this.registerIncoming(0x01, SPacketLoginRequest.class);
         this.registerIncoming(0x02, SPacketHandshake.class);
+        this.registerIncoming(0x03, SPacketChatMessage.class);
 
         this.registerOutgoing(0x00, CPacketKeepAlive.class);
         this.registerOutgoing(0x01, CPacketLoginRequest.class);
         this.registerOutgoing(0x02, CPacketHandshake.class);
+        this.registerIncoming(0x03, CPacketChatMessage.class);
     }
 
     @Override
@@ -78,10 +83,13 @@ public class PoremoProtocol extends PacketProtocol {
         this.registerIncoming(0x00, CPacketKeepAlive.class);
         this.registerIncoming(0x01, CPacketLoginRequest.class);
         this.registerIncoming(0x02, CPacketHandshake.class);
+        this.registerIncoming(0x03, CPacketChatMessage.class);
 
         this.registerOutgoing(0x00, SPacketKeepAlive.class);
         this.registerOutgoing(0x01, SPacketLoginRequest.class);
         this.registerOutgoing(0x02, SPacketHandshake.class);
+        this.registerIncoming(0x03, SPacketChatMessage.class);
+        this.registerIncoming(0x04, SPacketTimeUpdate.class);
     }
 
 }
